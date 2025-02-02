@@ -1,0 +1,180 @@
+{
+    "items": [
+       {
+          "id": 1,
+          "title": "Couch1",
+          "category": "lounge",
+          "price": "6500",
+          "rating": 1,
+          "img_url": "https://i.pinimg.com/originals/04/31/96/0431960cb4edc8c4889faef67289188f.png",
+          "collection": "living-room",
+          "color": "white",
+          "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque sapiente quia, suscipit ipsum voluptates id sequi quibusdam aspernatur eveniet itaque iuto animi veniam dolore in provident delectus nesciunt doloremque? Voluptatem!",
+          "color1": "#fed5a4",
+          "color2": "#22dd44"
+       },
+       {
+          "id": 2,
+          "title": "Couch2",
+          "category": "lounge",
+          "price": "8500",
+          "rating": 4,
+          "img_url": "https://i5.walmartimages.com/asr/0474ed05-16cc-4f20-a732-c619e7293e20.bef8988e48304dff44028a609cd1d1f1.jpeg?odnWidth=612&odnHeight=612&odnBg=ffffff",
+          "collection": "backyard",
+          "color": "gray",
+          "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque sapiente quia, suscipit ipsum voluptates id sequi quibusdam aspernatur eveniet itaque iusto animi veniam dolore in provident delectus nesciunt doloremque? Voluptatem!",
+          "color1": "#fed5a4",
+          "color2": "#22dd44"
+       },
+       {
+          "id": 3,
+          "title": "Couch3",
+          "category": "lounge",
+          "price": "600",
+          "rating": 2,
+          "img_url": "https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2015/6/11/0/DP_Caitlin-and-Caitlin-white-transitional-living-room-couch_h.jpg.rend.hgtvcom.966.725.suffix/1400994020531.jpeg",
+          "collection": "living-room",
+          "color": "brown",
+          "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque sapiente quia, suscipit ipsum voluptates id sequi quibusdam aspernatur eveniet itaque iusto animi veniam dolore in provident delectus nesciunt doloremque? Voluptatem!",
+          "color1": "#fed5a4",
+          "color2": "#22dd44"
+       },
+       {
+          "id": 4,
+          "title": "Couch4",
+          "category": "lounge",
+          "price": "200",
+          "rating": 1,
+          "img_url": "https://okl.scene7.com/is/image/OKL/091916_sofa_Lead?wid=1000&op_sharpen=1",
+          "collection": "Living-room",
+          "color": "blue",
+          "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque sapiente quia, suscipit ipsum voluptates id sequi quibusdam aspernatur eveniet itaque iusto animi veniam dolore in provident delectus nesciunt doloremque? Voluptatem!",
+          "color1": "#fed5a4",
+          "color2": "#22dd44"
+       },
+       {
+          "id": 5,
+          "title": "Couch5",
+          "category": "backyard",
+          "price": "1500",
+          "rating": 5,
+          "img_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT47KR-sdLUh5d_4V2lcFFEhpE7GOKLjBZvKA&usqp=CAU",
+          "collection": "living-room",
+          "color": "white",
+          "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque sapiente quia, suscipit ipsum voluptates id sequi quibusdam aspernatur eveniet itaque iusto animi veniam dolore in provident delectus nesciunt doloremque? Voluptatem!",
+          "color1": "#fed5a4",
+          "color2": "#22dd44"
+       },
+       {
+          "id": 6,
+          "title": "Patio1",
+          "category": "backyard",
+          "price": "3020",
+          "rating": 5,
+          "img_url": "http://sc01.alicdn.com/kf/HTB1w39kXOjrK1RjSsplq6xHmVXan/224155293/HTB1w39kXOjrK1RjSsplq6xHmVXan.jpg",
+          "collection": "backyard",
+          "color": "white",
+          "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque sapiente quia, suscipit ipsum voluptates id sequi quibusdam aspernatur eveniet itaque iusto animi veniam dolore in provident delectus nesciunt doloremque? Voluptatem!",
+          "color1": "#fed5a4",
+          "color2": "#22dd44"
+       },
+       {
+          "id": 7,
+          "title": "Patio2",
+          "category": "backyard",
+          "price": "4019",
+          "rating": 5,
+          "img_url": "https://3.imimg.com/data3/FO/RY/MY-1632538/garden-outdoor-furniture-500x500.jpg",
+          "collection": "backyard",
+          "color": "brown",
+          "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque sapiente quia, suscipit ipsum voluptates id sequi quibusdam aspernatur eveniet itaque iusto animi veniam dolore in provident delectus nesciunt doloremque? Voluptatem!",
+          "color1": "#fed5a4",
+          "color2": "#22dd44"
+       },
+       {
+          "id": 8,
+          "title": "Home-decor1",
+          "category": "home-decor",
+          "price": "400",
+          "rating": 3,
+          "img_url": "https://images-na.ssl-images-amazon.com/images/I/61O6qDEasxL._SL1100_.jpg",
+          "collection": "home-decor",
+          "color": "red",
+          "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque sapiente quia, suscipit ipsum voluptates id sequi quibusdam aspernatur eveniet itaque iusto animi veniam dolore in provident delectus nesciunt doloremque? Voluptatem!",
+          "color1": "#fed5a4",
+          "color2": "#ad2b2b"
+       },
+       {
+          "id": 9,
+          "title": "Home-decor2",
+          "category": "home-decor",
+          "price": "419",
+          "rating": 5,
+          "img_url": "https://i.pinimg.com/736x/90/e9/dd/90e9ddf921fb625811af3938963e7740.jpg",
+          "collection": "home-decor",
+          "color": "gold",
+          "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque sapiente quia, suscipit ipsum voluptates id sequi quibusdam aspernatur eveniet itaque iusto animi veniam dolore in provident delectus nesciunt doloremque? Voluptatem!",
+          "color1": "#86ad2b",
+          "color2": "#000"
+       },
+       {
+          "id": 10,
+          "title": "Home-decor3",
+          "category": "home-decor",
+          "price": "719",
+          "rating": 4,
+          "img_url": "https://images-na.ssl-images-amazon.com/images/I/51A4XK0a6NL._SY606_.jpg",
+          "collection": "home-decor",
+          "color": "gold",
+          "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque sapiente quia, suscipit ipsum voluptates id sequi quibusdam aspernatur eveniet itaque iusto animi veniam dolore in provident delectus nesciunt doloremque? Voluptatem!",
+          "color1": "#2752a1",
+          "color2": "#1d0527"
+       }
+    ],
+    "categories": [
+       {
+          "name": "lounge",
+          "id-list": [1, 2, 3, 4]
+       },
+       {
+          "name": "home-decor",
+          "id-list": [8, 9, 10]
+       },
+       {
+          "name": "backyard",
+          "id-list": [5, 6, 7]
+       }
+    ],
+    "collection": [
+       {
+          "name": "living-room"
+       },
+       {
+          "name": "backyard"
+       },
+       {
+          "name": "home-decor"
+       }
+    ],
+    "color": [
+       {
+          "name": "white"
+       },
+       {
+          "name": "gray"
+       },
+       {
+          "name": "brown"
+       },
+       {
+          "name": "red"
+       },
+       {
+          "name": "gold"
+       },
+       {
+          "name": "blue"
+       }
+    ]
+ }
+ 
