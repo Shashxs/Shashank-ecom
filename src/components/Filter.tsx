@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
-interface FilterProps {
-  onApplyFilters: (filters: { colors: string[], priceRange: number, categories: string[], collections: string[] }) => void;
-  onResetFilters: () => void;
-  isVisible: boolean;
-}
+import { FilterProps } from '../types/types';
 
 const Filter: React.FC<FilterProps> = ({ onApplyFilters, onResetFilters, isVisible }) => {
   const [categories, setCategories] = useState<string[]>([]);

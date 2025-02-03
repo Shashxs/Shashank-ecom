@@ -1,43 +1,47 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
-
-interface CartItem {
-  id: number;
-  title: string;
-  price: number;
-  quantity: number;
-  img_url: string;
-}
+import { CartItem } from '../types/types';
 
 const Cart: React.FC = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Fetch cart items from local storage or API
-    const items = JSON.parse(localStorage.getItem('cartItems') || '[]');
-    setCartItems(items);
-    calculateTotalPrice(items);
+    try {
+      const items = JSON.parse(localStorage.getItem('cartItems') || '[]');
+      setCartItems(items);
+      calculateTotalPrice(items);
+    } catch (err) {
+      setError('Failed to load cart items.');
+    }
   }, []);
 
   const handleRemove = (id: number) => {
-    const updatedItems = cartItems.filter(item => item.id !== id);
-    setCartItems(updatedItems);
-    localStorage.setItem('cartItems', JSON.stringify(updatedItems));
-    calculateTotalPrice(updatedItems);
+    try {
+      const updatedItems = cartItems.filter(item => item.id !== id);
+      setCartItems(updatedItems);
+      localStorage.setItem('cartItems', JSON.stringify(updatedItems));
+      calculateTotalPrice(updatedItems);
+    } catch (err) {
+      setError('Failed to remove item from cart.');
+    }
   };
 
   const handleQuantityChange = (id: number, quantity: number) => {
-    const updatedItems = cartItems.map(item =>
-      item.id === id ? { ...item, quantity: quantity } : item
-    );
-    setCartItems(updatedItems);
-    localStorage.setItem('cartItems', JSON.stringify(updatedItems));
-    calculateTotalPrice(updatedItems);
+    try {
+      const updatedItems = cartItems.map(item =>
+        item.id === id ? { ...item, quantity: quantity } : item
+      );
+      setCartItems(updatedItems);
+      localStorage.setItem('cartItems', JSON.stringify(updatedItems));
+      calculateTotalPrice(updatedItems);
+    } catch (err) {
+      setError('Failed to update item quantity.');
+    }
   };
 
   const handleToggleFilter = () => {
-    // No filter functionality needed here
   };
 
   const calculateTotalPrice = (items: CartItem[]) => {
@@ -52,6 +56,7 @@ const Cart: React.FC = () => {
       }} />
       <div className="container mx-auto p-12">
         <h1 className="text-3xl font-bold mb-6 text-right">Shopping Cart</h1>
+        {error && <p className="text-red-500 text-center">{error}</p>}
         {cartItems.length === 0 ? (
           <p className="text-gray-600 text-center">Your cart is empty.</p>
         ) : (
@@ -73,6 +78,7 @@ const Cart: React.FC = () => {
                           value={item.quantity}
                           min="1"
                           onChange={(e) => handleQuantityChange(item.id, Number(e.target.value))}
+                          aria-label={`Change quantity for ${item.title}`}
                         />
                       </div>
                     </div>
@@ -81,6 +87,7 @@ const Cart: React.FC = () => {
                   <button
                     onClick={() => handleRemove(item.id)}
                     className="text-red-500 px-4 py-2 rounded-lg ml-4 bg-red-100 hover:bg-red-200 transition duration-300"
+                    aria-label={`Remove ${item.title} from cart`}
                   >
                     Remove
                   </button>
@@ -96,6 +103,7 @@ const Cart: React.FC = () => {
                 </div>
                 <button
                   className="bg-blue-500 text-black w-full py-3 rounded-lg hover:bg-blue-600 transition duration-300 transform hover:scale-110"
+                  aria-label="Proceed to checkout"
                 >
                   Proceed to Checkout
                 </button>

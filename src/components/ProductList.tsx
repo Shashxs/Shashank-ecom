@@ -1,31 +1,8 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import StarRating from './StarRating';
-import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
-
-interface Product {
-  id: number;
-  title: string;
-  category: string;
-  price: string;
-  rating: number;
-  img_url: string;
-  collection: string;
-  color: string;
-  desc: string;
-  color1: string;
-  color2: string;
-}
-
-interface ProductListProps {
-  filters: {
-    colors: string[];
-    priceRange: number;
-    categories: string[];
-    collections: string[];
-  };
-  searchQuery: string;
-}
+import { AiFillHeart, AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai';
+import { Product, ProductListProps } from '../types/types'; // Import interfaces
 
 const ProductList: React.FC<ProductListProps> = ({ filters, searchQuery }) => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -44,10 +21,11 @@ const ProductList: React.FC<ProductListProps> = ({ filters, searchQuery }) => {
       .then(data => setProducts(data))
       .catch(error => console.error('Fetch error:', error));
 
-    const storedFavorites = localStorage.getItem('favorites');
-    if (storedFavorites) {
-      setFavorites(JSON.parse(storedFavorites));
-    }
+    // const storedFavorites = localStorage.getItem('favorites');
+    // if (storedFavorites) {
+    //   setFavorites(JSON.parse(storedFavorites));
+    // }
+    
   }, []);
 
   useEffect(() => {
@@ -84,6 +62,12 @@ const ProductList: React.FC<ProductListProps> = ({ filters, searchQuery }) => {
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
+  const handleAddToCart = (product: Product) => {
+    const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
+    const updatedCartItems = [...cartItems, { ...product, quantity: 1, color: product.color }];
+    localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
+  };
+
   const toggleFavorite = (id: number) => {
     setFavorites(prevFavorites => {
       const updatedFavorites = prevFavorites.includes(id)
@@ -96,17 +80,27 @@ const ProductList: React.FC<ProductListProps> = ({ filters, searchQuery }) => {
 
   return (
     <div className="container mx-auto p-4 max-w-full mt-20">
-      <div style={{ height: '64px' }}></div>
-      {/* <h1 className="text-2xl font-bold mb-4 mt-15 text-center">Products</h1> */}
-      <div className="flex-grow overflow-y-auto">
+      <div style={{ height: '60px' }}></div>
+      <div className="flex-grow overflow-y-auto pt-7 ">
         {currentProducts.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {currentProducts.map(product => (
-              <div key={product.id} className="bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out relative">
-                <Link to={`/product/${product.id}`} aria-label={`View details of ${product.title}`}>
+              <Link to={`/product/${product.id}`} key={product.id} aria-label={`View details of ${product.title}`}>
+                <div className="bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300 ease-in-out relative">
                   <img src={product.img_url} alt={product.title} className="w-full h-50 object-cover rounded-t-lg" />
                   <div className="p-6">
-                    <h2 className="text-gray-700 text-xl font-semibold mb-2">{product.title}</h2>
+                    <div className="flex justify-between items-center mb-2">
+                      <h2 className="text-gray-700 text-xl font-semibold">{product.title}</h2>
+                      <AiOutlineShoppingCart
+                        onClick={(e) => {
+                          e.preventDefault();
+                          handleAddToCart(product);
+                        }}
+                        className="text-gray-400 w-6 h-6 hover:text-blue-500 transition duration-300 cursor-pointer"
+                        aria-label={`Add ${product.title} to cart`}
+                      />
+                    </div>
+                    <p className="text-gray-700 mb-2">{product.category}</p>
                     <p className="text-gray-700 mb-2">${product.price}</p>
                     <div className="flex items-center mb-2">
                       <span className="text-gray-700 mr-2">Rating:</span>
@@ -117,19 +111,22 @@ const ProductList: React.FC<ProductListProps> = ({ filters, searchQuery }) => {
                       <span className="block w-6 h-6 rounded-full" style={{ backgroundColor: product.color2 }} aria-label={`Color option 2: ${product.color2}`}></span>
                     </div>
                   </div>
-                </Link>
-                <button
-                  onClick={() => toggleFavorite(product.id)}
-                  className="absolute top-2 right-2"
-                  aria-label={favorites.includes(product.id) ? `Remove ${product.title} from favorites` : `Add ${product.title} to favorites`}
-                >
-                  {favorites.includes(product.id) ? (
-                    <AiFillHeart className="text-red-500 w-6 h-6" aria-label="Remove from favorites" />
-                  ) : (
-                    <AiOutlineHeart className="text-gray-400 w-6 h-6 hover:text-red-500 transition duration-300" aria-label="Add to favorites" />
-                  )}
-                </button>
-              </div>
+                  <button
+                    onClick={(e) => {
+                      e.preventDefault();
+                      toggleFavorite(product.id);
+                    }}
+                    className="favorite-button absolute top-2 right-2 focus:outline-none"
+                    aria-label={favorites.includes(product.id) ? `Remove ${product.title} from favorites` : `Add ${product.title} to favorites`}
+                  >
+                    {favorites.includes(product.id) ? (
+                      <AiFillHeart className="text-red-500 w-6 h-6" aria-label="Remove from favorites" />
+                    ) : (
+                      <AiOutlineHeart className="text-gray-400 w-6 h-6 hover:text-red-500 transition duration-300" aria-label="Add to favorites" />
+                    )}
+                  </button>
+                </div>
+              </Link>
             ))}
           </div>
         ) : (

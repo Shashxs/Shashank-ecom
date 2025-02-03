@@ -1,24 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import StarRating from './StarRating';
-
-interface Product {
-  id: number;
-  title: string;
-  category: string;
-  price: string;
-  rating: number;
-  img_url: string;
-  collection: string;
-  color: string;
-  desc: string;
-  color1: string;
-  color2: string;
-}
+import { Product } from '../types/types';
 
 const ProductDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
   const [product, setProduct] = useState<Product | null>(null);
   const [quantity, setQuantity] = useState(1);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
@@ -58,6 +46,11 @@ const ProductDetail: React.FC = () => {
     localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
   };
 
+  const handleBuyNow = () => {
+    handleAddToCart();
+    navigate('/cart');
+  };
+
   const handleColorChange = (color: string) => {
     setSelectedColor(color);
   };
@@ -67,9 +60,9 @@ const ProductDetail: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen  bg-gray-100">
+    <div className="min-h-screen bg-gray-25">
       <Navbar onToggleFilter={handleToggleFilter} onSearch={() => {}} />
-      <div className=" flex-grow pt-14 w-full mx-auto p-4 mt-16">
+      <div className="flex-grow pt-14 w-full mx-auto p-4 mt-16">
         <div className="flex flex-col lg:flex-row">
           <div className="lg:w-1/2">
             <img src={product.img_url} alt={product.title} className="w-full h-96 object-cover mb-4 rounded" />
@@ -111,7 +104,13 @@ const ProductDetail: React.FC = () => {
                 aria-label="Quantity"
               />
             </div>
-            <button className="bg-blue-500 text-black px-4 py-2 rounded mr-2 hover:bg-blue-600" aria-label="Buy Now">Buy Now</button>
+            <button
+              className="bg-blue-500 text-black px-4 py-2 rounded mr-2 hover:bg-blue-600"
+              onClick={handleBuyNow}
+              aria-label="Buy Now"
+            >
+              Buy Now
+            </button>
             <button
               className="bg-green-500 text-black px-4 py-2 rounded hover:bg-green-600"
               onClick={handleAddToCart}

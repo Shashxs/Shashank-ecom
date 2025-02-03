@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FiMenu } from 'react-icons/fi';
-
-interface NavbarProps {
-  onToggleFilter: () => void;
-  onSearch: (query: string) => void;
-}
+import { NavbarProps } from '../types/types';
+import logo  from '../assets/logofinal.png'
 
 const Navbar: React.FC<NavbarProps> = ({ onToggleFilter, onSearch }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -41,13 +38,13 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleFilter, onSearch }) => {
         <button onClick={onToggleFilter} className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-1 px-2 rounded-full transition duration-300" aria-label="Toggle Filter">
           <FiMenu className="h-6 w-6" />
         </button>
-        <Link to="/" className="text-lg font-bold hover:text-gray-500 transition duration-300" aria-label="Home">Home</Link>
-        <Link to="/favourites" className="text-lg font-bold hover:text-gray-500 transition duration-300" aria-label="Favourites">Favourites</Link>
-        <Link to="/shop" className="text-lg font-bold hover:text-gray-500 transition duration-300" aria-label="Shop">Shop</Link>
+        <Link to="/" className="md:font-serif text-lg font-bold hover:text-gray-500 transition duration-300" aria-label="Home">Home</Link>
+        <Link to="/favourites" className="md:font-serif text-lg font-bold hover:text-gray-500 transition duration-300" aria-label="Favourites">Favourites</Link>
+        <Link to="/shop" className="md:font-serif text-lg font-bold hover:text-gray-500 transition duration-300" aria-label="Shop">Shop</Link>
       </div>
       <div className="flex items-center space-x-6">
         <Link to="/" className="text-lg font-bold hover:text-gray-500 transition duration-300" aria-label="Logo">
-          <img src="src\assets\logofinal.png" alt="Logo" className="h-12" />
+          <img src={logo} alt="Logo" className="h-12" />
         </Link>
       </div>
       <div className="flex items-center space-x-6">
@@ -71,7 +68,7 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleFilter, onSearch }) => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
           </svg>
         </Link>
-        <Link to="/login" className="text-lg hover:text-gray-500 transition duration-300" aria-label="Login">Login</Link>
+        <Link to="/login" className="font-serif text-lg font-bold hover:text-gray-500 transition duration-300" aria-label="Login">Login</Link>
       </div>
     </nav>
   );

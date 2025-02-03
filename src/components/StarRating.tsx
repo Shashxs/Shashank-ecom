@@ -1,9 +1,6 @@
 import React from 'react';
 import { AiFillStar, AiOutlineStar, AiTwotoneStar } from 'react-icons/ai';
-
-interface StarRatingProps {
-  rating: number;
-}
+import { StarRatingProps } from '../types/types';
 
 const StarRating: React.FC<StarRatingProps> = ({ rating }) => {
   const fullStars = Math.floor(rating);

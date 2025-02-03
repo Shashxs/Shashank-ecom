@@ -37,7 +37,7 @@ const Home: React.FC = () => {
   return (
     <div>
       <Navbar onToggleFilter={handleToggleFilter} onSearch={handleSearch} />
-      <div className="flex flex-col lg:flex-row w-full">
+      <div className="flex flex-col lg:flex-row w-full ">
         {isFilterVisible && (
           <div className="lg:w-1/4 p-4">
             <Filter onApplyFilters={handleApplyFilters} onResetFilters={handleResetFilters} isVisible={isFilterVisible} />
