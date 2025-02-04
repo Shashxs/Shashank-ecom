@@ -15,13 +15,10 @@ npm (version 6 or higher)
 Vite (version 2 or higher)
 
 Installation
-Clone the repository using git clone https://github.com/shashankxs/ecommerce.git
+Clone the repository using git clone
 Navigate to the project directory using cd ecommerce-website
 Install dependencies using npm install
 Start the development server using npm run dev
-Build and Deployment
-Build the project using npm run build
-Deploy the project to your preferred hosting platform
 
 Project Structure
 src: Source code for the project

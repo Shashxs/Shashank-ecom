@@ -80,8 +80,7 @@ const ProductList: React.FC<ProductListProps> = ({ filters, searchQuery }) => {
 
   return (
     <div className="container mx-auto p-4 max-w-full mt-20">
-      <div style={{ height: '60px' }}></div>
-      <div className="flex-grow overflow-y-auto pt-7 ">
+      <div className="flex-grow overflow-y-auto pt-7 mt-15">
         {currentProducts.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {currentProducts.map(product => (
@@ -130,7 +129,7 @@ const ProductList: React.FC<ProductListProps> = ({ filters, searchQuery }) => {
             ))}
           </div>
         ) : (
-          <div className="text-center text-gray-700 mt-10">
+          <div className="text-center text-gray-700 mt-10 mx-100">
             No products found.
           </div>
         )}

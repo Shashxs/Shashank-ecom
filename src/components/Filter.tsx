@@ -77,7 +77,7 @@ const Filter: React.FC<FilterProps> = ({ onApplyFilters, onResetFilters, isVisib
   };
 
   return (
-    <div className={`p-6 bg-white mt-11 rounded-lg shadow-lg ${isVisible ? 'block' : 'hidden'}`}>
+    <div className={`p-6 bg-white mt-11 rounded-lg shadow-lg w-70 ${isVisible ? 'block' : 'hidden'}`}>
       <div className="mb-6">
         <h3 className="font-semibold mb-3 text-lg text-gray-800 flex justify-between items-center cursor-pointer" onClick={() => setShowCategories(!showCategories)}>
           Categories

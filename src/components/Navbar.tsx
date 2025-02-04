@@ -35,7 +35,7 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleFilter, onSearch }) => {
   return (
     <nav className={`bg-white py-2 px-6 text-gray-800 flex justify-between items-center flex-wrap shadow-md w-full fixed top-0 z-50 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`} aria-label="Main Navigation">
       <div className="flex items-center space-x-6">
-        <button onClick={onToggleFilter} className="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-1 px-2 rounded-full transition duration-300" aria-label="Toggle Filter">
+        <button onClick={onToggleFilter} className="bg-gray-200 hover:bg-gray-300 text-gray-800 items-center font-bold py-1 px-2 rounded-full transition duration-300" aria-label="Toggle Filter">
           <FiMenu className="h-6 w-6" />
         </button>
         <Link to="/" className="md:font-serif text-lg font-bold hover:text-gray-500 transition duration-300" aria-label="Home">Home</Link>
