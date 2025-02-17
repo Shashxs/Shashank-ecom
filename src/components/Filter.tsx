@@ -31,7 +31,7 @@ const Filter: React.FC<FilterProps> = ({ onApplyFilters, onResetFilters, isVisib
     fetch('http://localhost:5000/items')
       .then(response => response.json())
       .then(data => {
-        const prices = data.map((item: any) => item.price);
+        const prices = data.map((item: any) => item.price);   //price range max
         setMaxPrice(Math.max(...prices));
         setPriceRange(Math.max(...prices));
       });
@@ -74,12 +74,12 @@ const Filter: React.FC<FilterProps> = ({ onApplyFilters, onResetFilters, isVisib
     setSelectedCollections([]);
     setPriceRange(maxPrice);
     onResetFilters();
-  };
+  };  
 
   return (
     <div className={`p-6 bg-white mt-11 rounded-lg shadow-lg w-70 ${isVisible ? 'block' : 'hidden'}`}>
       <div className="mb-6">
-        <h3 className="font-semibold mb-3 text-lg text-gray-800 flex justify-between items-center cursor-pointer" onClick={() => setShowCategories(!showCategories)}>
+        <h3 className="font-semibold mb-3 text-lg text-gray-800 flex justify-between items-center cursor-pointer" aria-label="category dropdown" onClick={() => setShowCategories(!showCategories)}>
           Categories
           <span>{showCategories ? '▲' : '▼'}</span>
         </h3>
@@ -91,10 +91,10 @@ const Filter: React.FC<FilterProps> = ({ onApplyFilters, onResetFilters, isVisib
                   type="checkbox"
                   id={category}
                   name={category}
-                  className="mr-3 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
-                  onChange={() => handleCategoryChange(category)}
+                  className="mr-3 h-4 w-4 text-grey-600 border-gray-300 rounded"
+                  onChange={() => handleCategoryChange(category)} 
                 />
-                <label htmlFor={category} className="text-gray-700">{category}</label>
+                <label htmlFor={category} className="text-gray-700">{category}</label> 
               </div>
             ))}
           </div>
@@ -161,7 +161,7 @@ const Filter: React.FC<FilterProps> = ({ onApplyFilters, onResetFilters, isVisib
       </div>
       <div className="flex justify-end">
         <button
-          className="bg-blue-500 text-grey px-4 py-2 rounded hover:bg-blue-600 transition duration-300 mr-2"
+          className="bg-grey-500 text-grey px-4 py-2 rounded mr-2"
           onClick={applyFilters}
         > 
           Apply Filter

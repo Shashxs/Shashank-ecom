@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1739783314999" clover="3.2.0">
+  <project timestamp="1739783314999" name="All files">
+    <metrics statements="111" coveredstatements="106" conditionals="51" coveredconditionals="39" methods="43" coveredmethods="36" elements="205" coveredelements="181" complexity="0" loc="111" ncloc="111" packages="2" files="5" classes="5"/>
+    <package name="mocks">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="FileMock.js" path="C:\Users\shachavan\Desktop\Shashank-ecom\mocks\FileMock.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components">
+      <metrics statements="110" coveredstatements="105" conditionals="51" coveredconditionals="39" methods="43" coveredmethods="36"/>
+      <file name="Navbar.tsx" path="C:\Users\shachavan\Desktop\Shashank-ecom\src\components\Navbar.tsx">
+        <metrics statements="18" coveredstatements="18" conditionals="6" coveredconditionals="5" methods="5" coveredmethods="5"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="23" type="stmt"/>
+        <line num="9" count="23" type="stmt"/>
+        <line num="10" count="23" type="stmt"/>
+        <line num="12" count="23" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="19" count="23" type="stmt"/>
+        <line num="20" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="2" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="25" count="4" type="stmt"/>
+        <line num="28" count="23" type="stmt"/>
+        <line num="29" count="20" type="stmt"/>
+        <line num="30" count="20" type="stmt"/>
+        <line num="31" count="20" type="stmt"/>
+        <line num="35" count="23" type="stmt"/>
+      </file>
+      <file name="ProductDetails.tsx" path="C:\Users\shachavan\Desktop\Shashank-ecom\src\components\ProductDetails.tsx">
+        <metrics statements="36" coveredstatements="34" conditionals="14" coveredconditionals="11" methods="13" coveredmethods="10"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="17" type="stmt"/>
+        <line num="9" count="17" type="stmt"/>
+        <line num="10" count="17" type="stmt"/>
+        <line num="11" count="16" type="stmt"/>
+        <line num="12" count="16" type="stmt"/>
+        <line num="13" count="16" type="stmt"/>
+        <line num="14" count="16" type="stmt"/>
+        <line num="16" count="16" type="stmt"/>
+        <line num="17" count="8" type="stmt"/>
+        <line num="19" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="22" count="7" type="stmt"/>
+        <line num="25" count="7" type="stmt"/>
+        <line num="26" count="7" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="35" count="16" type="cond" truecount="2" falsecount="0"/>
+        <line num="36" count="8" type="cond" truecount="2" falsecount="0"/>
+        <line num="37" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="39" count="7" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+        <line num="43" count="7" type="stmt"/>
+        <line num="44" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="45" count="2" type="stmt"/>
+        <line num="46" count="2" type="stmt"/>
+        <line num="49" count="7" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="54" count="7" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="58" count="7" type="stmt"/>
+        <line num="62" count="7" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="89" count="0" type="stmt"/>
+      </file>
+      <file name="ProductList.tsx" path="C:\Users\shachavan\Desktop\Shashank-ecom\src\components\ProductList.tsx">
+        <metrics statements="49" coveredstatements="46" conditionals="26" coveredconditionals="21" methods="22" coveredmethods="18"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="14" type="stmt"/>
+        <line num="9" count="14" type="stmt"/>
+        <line num="10" count="14" type="stmt"/>
+        <line num="11" count="14" type="stmt"/>
+        <line num="12" count="14" type="stmt"/>
+        <line num="15" count="14" type="stmt"/>
+        <line num="16" count="7" type="stmt"/>
+        <line num="18" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="21" count="6" type="stmt"/>
+        <line num="23" count="6" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="28" count="14" type="stmt"/>
+        <line num="29" count="8" type="stmt"/>
+        <line num="33" count="14" type="stmt"/>
+        <line num="34" count="12" type="stmt"/>
+        <line num="37" count="12" type="cond" truecount="1" falsecount="1"/>
+        <line num="38" count="50" type="stmt"/>
+        <line num="42" count="12" type="cond" truecount="1" falsecount="1"/>
+        <line num="43" count="43" type="stmt"/>
+        <line num="47" count="12" type="cond" truecount="1" falsecount="1"/>
+        <line num="48" count="37" type="stmt"/>
+        <line num="52" count="33" type="stmt"/>
+        <line num="55" count="12" type="cond" truecount="1" falsecount="1"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="59" count="12" type="stmt"/>
+        <line num="63" count="14" type="stmt"/>
+        <line num="64" count="14" type="stmt"/>
+        <line num="65" count="14" type="stmt"/>
+        <line num="68" count="14" type="stmt"/>
+        <line num="71" count="14" type="stmt"/>
+        <line num="72" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="73" count="1" type="stmt"/>
+        <line num="74" count="1" type="stmt"/>
+        <line num="78" count="14" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
+        <line num="80" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="83" count="1" type="stmt"/>
+        <line num="84" count="1" type="stmt"/>
+        <line num="88" count="14" type="stmt"/>
+        <line num="96" count="38" type="stmt"/>
+        <line num="104" count="1" type="stmt"/>
+        <line num="105" count="1" type="stmt"/>
+        <line num="124" count="1" type="stmt"/>
+        <line num="125" count="1" type="stmt"/>
+        <line num="149" count="10" type="stmt"/>
+        <line num="151" count="0" type="stmt"/>
+      </file>
+      <file name="StarRating.tsx" path="C:\Users\shachavan\Desktop\Shashank-ecom\src\components\StarRating.tsx">
+        <metrics statements="7" coveredstatements="7" conditionals="5" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="5" count="2" type="cond" truecount="0" falsecount="1"/>
+        <line num="6" count="45" type="stmt"/>
+        <line num="7" count="45" type="stmt"/>
+        <line num="8" count="45" type="cond" truecount="1" falsecount="1"/>
+        <line num="10" count="45" type="stmt"/>
+        <line num="13" count="145" type="stmt"/>
+        <line num="17" count="80" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

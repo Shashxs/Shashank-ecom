@@ -105,14 +105,14 @@ const ProductDetail: React.FC = () => {
               />
             </div>
             <button
-              className="bg-blue-500 text-black px-4 py-2 rounded mr-2 hover:bg-blue-600"
+              className="bg-white text-black px-4 py-2 rounded mr-2"
               onClick={handleBuyNow}
               aria-label="Buy Now"
             >
               Buy Now
             </button>
             <button
-              className="bg-green-500 text-black px-4 py-2 rounded hover:bg-green-600"
+              className="bg-white text-black px-4 py-2 rounded"
               onClick={handleAddToCart}
               aria-label="Add to Cart"
             >

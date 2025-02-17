@@ -2,14 +2,16 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import StarRating from './StarRating';
 import { AiFillHeart, AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai';
-import { Product, ProductListProps } from '../types/types'; // Import interfaces
+import { Product, ProductListProps } from '../types/types';
 
 const ProductList: React.FC<ProductListProps> = ({ filters, searchQuery }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [favorites, setFavorites] = useState<number[]>([]);
+  const [error, setError] = useState<string | null>(null);
   const productsPerPage = 8;
 
+  // Fetch products from the server when the component mounts
   useEffect(() => {
     fetch('http://localhost:5000/items')
       .then(response => {
@@ -19,36 +21,37 @@ const ProductList: React.FC<ProductListProps> = ({ filters, searchQuery }) => {
         return response.json();
       })
       .then(data => setProducts(data))
-      .catch(error => console.error('Fetch error:', error));
-
-    // const storedFavorites = localStorage.getItem('favorites');
-    // if (storedFavorites) {
-    //   setFavorites(JSON.parse(storedFavorites));
-    // }
-    
+      .catch(error => setError(error.message));
   }, []);
 
+  // Save favorites to local storage whenever the favorites state changes
   useEffect(() => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }, [favorites]);
 
+  // Memoized function to filter products 
   const filteredProducts = useMemo(() => {
     let filtered = products;
 
+    // Filter by colors
     if (filters.colors.length > 0) {
       filtered = filtered.filter(product => filters.colors.includes(product.color));
     }
 
+    // Filter by categories
     if (filters.categories.length > 0) {
       filtered = filtered.filter(product => filters.categories.includes(product.category));
     }
 
+    // Filter by collections
     if (filters.collections.length > 0) {
       filtered = filtered.filter(product => filters.collections.includes(product.collection));
     }
 
+    // Filter by price range
     filtered = filtered.filter(product => Number(product.price) <= filters.priceRange);
 
+    // Filter by search query
     if (searchQuery) {
       filtered = filtered.filter(product => product.title.toLowerCase().includes(searchQuery.toLowerCase()));
     }
@@ -56,18 +59,22 @@ const ProductList: React.FC<ProductListProps> = ({ filters, searchQuery }) => {
     return filtered;
   }, [filters, products, searchQuery]);
 
+  // Calculate the indices for the current page's products
   const indexOfLastProduct = currentPage * productsPerPage;
   const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
   const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
 
+  // Function to handle pagination
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
+  // Function to handle adding a product to the cart
   const handleAddToCart = (product: Product) => {
     const cartItems = JSON.parse(localStorage.getItem('cartItems') || '[]');
     const updatedCartItems = [...cartItems, { ...product, quantity: 1, color: product.color }];
     localStorage.setItem('cartItems', JSON.stringify(updatedCartItems));
   };
 
+  // Function to toggle a product as a favorite
   const toggleFavorite = (id: number) => {
     setFavorites(prevFavorites => {
       const updatedFavorites = prevFavorites.includes(id)
@@ -81,7 +88,9 @@ const ProductList: React.FC<ProductListProps> = ({ filters, searchQuery }) => {
   return (
     <div className="container mx-auto p-4 max-w-full mt-20">
       <div className="flex-grow overflow-y-auto pt-7 mt-15">
-        {currentProducts.length > 0 ? (
+        {error ? (
+          <div>{`Fetch error: ${error}`}</div>
+        ) : currentProducts.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {currentProducts.map(product => (
               <Link to={`/product/${product.id}`} key={product.id} aria-label={`View details of ${product.title}`}>
@@ -141,7 +150,7 @@ const ProductList: React.FC<ProductListProps> = ({ filters, searchQuery }) => {
               key={index + 1}
               onClick={() => paginate(index + 1)}
               className={`px-2 py-1 mx-1 rounded text=sm ${currentPage === index + 1 ? 'bg-blue-500 text-black' : 'bg-gray-200 hover:bg-gray-300'}`}
-              aria-label={`Go to page ${index + 1}`}
+              data-testid={`page-button-${index + 1}`}
             >
               {index + 1}
             </button>

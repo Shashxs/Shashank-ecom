@@ -11,7 +11,7 @@ export interface Product {
     color1: string;
     color2: string;
   }
-  
+
   export interface ProductListProps {
     filters: {
       colors: string[];

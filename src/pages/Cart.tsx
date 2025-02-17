@@ -45,7 +45,7 @@ const Cart: React.FC = () => {
   };
 
   const calculateTotalPrice = (items: CartItem[]) => {
-    const totalPrice = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    const totalPrice = items.reduce((acc, item) => acc + item.price * item.quantity, 0); //accumulator
     setTotalPrice(totalPrice);
   };
 

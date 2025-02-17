@@ -1,0 +1,12 @@
+{
+  "testEnvironment": "jsdom",
+  "setupFilesAfterEnv": ["<rootDir>/setupTests.js"],
+  "transform": {
+    "^.+\\.jsx?$": "babel-jest",
+    "^.+\\.tsx?$": "babel-jest"
+  },
+  "moduleFileExtensions": ["js", "jsx", "ts", "tsx"],
+  "moduleNameMapper": {
+    "\\.(jpg|jpeg|png|gif|svg)$": "<rootDir>/mocks/fileMock.js"
+  }
+}
